@@ -155,7 +155,7 @@
      }).then(device => {
           console.log('Found device ' + device.name);
 
-          return BluetoothDevice.gatt.connect().then(server => {
+          return device.gatt.connect().then(server => {
             console.log('Connected over GATT');
             return server.getPrimaryService(0x8765);
           })
