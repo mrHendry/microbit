@@ -148,7 +148,7 @@
     document.querySelector('#go').onclick = (e) => {
       e.preventDefault();
 
-     navigator.bluetooth.requestDevice({ filters: [{ services: [ 'heart_rate' ], }] })
+     navigator.bluetooth.requestDevice({ filters: [{ services: [ 0x8765 ] }] })
         .then(device => {
           console.log('Found device ' + device.name);
 
