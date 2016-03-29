@@ -148,11 +148,14 @@
     document.querySelector('#go').onclick = (e) => {
       e.preventDefault();
 
-     navigator.bluetooth.requestDevice({ filters: [{ services: [ 0x8765 ] }] })
-        .then(device => {
+     navigator.bluetooth.requestDevice({ 
+     filters: [{ 
+     services: [ 0x8765 ] 
+     }] 
+     }).then(device => {
           console.log('Found device ' + device.name);
 
-          return device.connectGATT().then(server => {
+          return BluetoothDevice.gatt.connect().then(server => {
             console.log('Connected over GATT');
             return server.getPrimaryService(0x8765);
           })
